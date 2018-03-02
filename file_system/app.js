@@ -4,6 +4,9 @@ const fs = require('fs');
 //Crea archivo data.txt
 fs.appendFileSync('./files/data.txt', 'Hola aprendiendo nodeJS');
 
+//Copia del archivo data.txt como file.txt
+fs.createReadStream('./files/data.txt').pipe(fs.createWriteStream('./files/file.txt'));
+
 //Lectura asincrona del archivo data.txt
 console.log('Iniciado asincrono');
 fs.readFile('./files/data.txt','utf-8', (error, data) => {
@@ -45,8 +48,13 @@ setTimeout(() => {
     //Elimina archivo data.txt
     fs.unlink('./files/data.txt', (error) => {
       if(error) throw error;
-      console.log('data.txt eliminado')
+      console.log('data.txt eliminado');
+    });
+    //Elimina archivo data.txt
+    fs.unlink('./files/file.txt', (error) => {
+      if(error) throw error;
+      console.log('file.txt eliminado');
     });
   });
-}, 900);
+}, 1000);
 
