@@ -61,3 +61,17 @@ setTimeout(() => {
   });
 }, 2000);
 
+setTimeout(() =>{
+  fs.readdir('./../../basic-node', (error, files) => {
+    console.log('Ver archivos contenidos asincrono')
+    files.forEach(file => {
+      console.log(file);
+    });
+  });
+
+  console.log('Ver archivos contenidos sincrono')
+  fs.readdirSync('./../../basic-node').forEach(file => {
+    console.log(file);
+  });
+}, 2200);
+
