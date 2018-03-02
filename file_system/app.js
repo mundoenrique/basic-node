@@ -22,22 +22,25 @@ console.log('leyendo archivo sincrono');
 console.log(data);
 console.log('Finalizado sincrono');
 
-//renombra archivo file.txt
-fs.rename('./files/file.txt', './files/datos.txt', (error) => {
-  if(error) throw error;
-  console.log('file.txt Renombrado a datos.txt');
-  //espera 900 milisegundos para iniciar
-  setTimeout(() => {
-    //Eliminar archivo datos
-    fs.unlink('./files/datos.txt', (error) => {
-      if(error) throw error;
-      console.log('datos.txt eliminado');
-      fs.appendFileSync('./files/file.txt', 'archivo para cambio de nombre');
-    });
-  }, 900);
-});
+//espera 1 segundo para iniciar
+setTimeout(() =>{
+  //renombra archivo file.txt
+  fs.rename('./files/file.txt', './files/datos.txt', (error) => {
+    if(error) throw error;
+    console.log('file.txt Renombrado a datos.txt');
+    //espera 900 milisegundos para iniciar
+    setTimeout(() => {
+      //Eliminar archivo datos
+      fs.unlink('./files/datos.txt', (error) => {
+        if(error) throw error;
+        console.log('datos.txt eliminado');
+        fs.appendFileSync('./files/file.txt', 'archivo para cambio de nombre');
+      });
+    }, 1000);
+  });
+}, 900);
 
-//espera 900 milisegundos para iniciar
+//espera 2 segundos para iniciar
 setTimeout(() => {
   //Escibir nueva línea en archivo data.txt
   fs.appendFile('./files/data.txt', '\n Cada día un poco más', (error) => {
@@ -56,5 +59,5 @@ setTimeout(() => {
       console.log('file.txt eliminado');
     });
   });
-}, 1000);
+}, 2000);
 
