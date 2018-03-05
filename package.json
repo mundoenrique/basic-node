@@ -4,6 +4,8 @@
   "description": "basic-node",
   "main": "index.js",
   "scripts": {
+    "start": "node ./debug/app.js",
+    "dev": "nodemon --inspect-brk ./debug/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +22,8 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
   }
 }
