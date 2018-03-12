@@ -14,13 +14,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mundoenrique/basic-node/issues"
   },
   "homepage": "https://github.com/mundoenrique/basic-node#readme",
   "dependencies": {
     "lodash": "^4.17.5",
+    "request": "^2.85.0",
     "yargs": "^11.0.0"
   },
   "devDependencies": {
